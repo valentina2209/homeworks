@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework-01</title>
+    <!-- Підключаємо React -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <!-- Підключаємо ReactDOM -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <!-- Babel для підтримки JSX-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Задача 3. Задано початок та кінець діапазону. 
+     При натисканні на кнопку випадковим чином генерувати значення 
+     з вказаного діапазону та відображати його. -->
+
+    <script type="text/babel">
+      function RandomNumber() {
+        const [start, setStart] = React.useState("");
+        const [end, setEnd] = React.useState("");
+        const [result, setResult] = React.useState("-");
+
+        const handleGenerate = () => {
+          const startNum = Number(start);
+          const endNum = Number(end);
+
+          if (isNaN(startNum) || isNaN(endNum) || startNum > endNum) {
+            setResult("Введіть коректний діапазон!");
+            return;
+          }
+
+          const random =
+            Math.floor(Math.random() * (endNum - startNum + 1)) + startNum;
+
+          setResult(random);
+        };
+
+        return (
+          <div>
+            <h2>Генератор випадкових чисел</h2>
+
+            <input
+              type="number"
+              value={start}
+              onChange={(e) => setStart(e.target.value)}
+            />
+
+            <input
+              type="number"
+              value={end}
+              onChange={(e) => setEnd(e.target.value)}
+            />
+
+            <button onClick={handleGenerate}>Згенерувати</button>
+
+            <div>Згенероване значення: {result}</div>
+          </div>
+        );
+      }
+      function App() {
+        return (
+          <React.Fragment>
+            <RandomNumber />
+          </React.Fragment>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

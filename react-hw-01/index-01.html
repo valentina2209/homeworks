@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework-01</title>
+    <!-- Підключаємо React -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <!-- Підключаємо ReactDOM -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <!-- Babel для підтримки JSX-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Задача 1. Вводиться кількість пасажирів. Вивести:
+              скільки потрібно автобусів (кожен автобус на 20 місць)
+              скільки пляшок води (кожному пасажиру 2 пляшки)
+              скільки бутербродів (кожному пасажиру 3 бутерброди) -->
+
+    <script type="text/babel">
+      const BUS = 20;
+      const WATER_FOR_PASSENGER = 2;
+      const SANDWICHES_FOR_PASSENGER = 3;
+
+      function CalculateProvisions() {
+        const [passengers, setPassengers] = React.useState("");
+
+        const handleInputChange = (event) => {
+          const value = event.target.value;
+          setPassengers(value);
+        };
+
+        const buses = Math.ceil(passengers / BUS);
+
+        const waterBottles = passengers * WATER_FOR_PASSENGER;
+
+        const sandwiches = passengers * SANDWICHES_FOR_PASSENGER;
+
+        return (
+          <div>
+            <h2>Калькулятор логістики</h2>
+
+            <label htmlFor="passengers-input">Кількість пасажирів:</label>
+            <input
+              id="passengers-input"
+              type="number"
+              value={passengers}
+              onChange={handleInputChange}
+            />
+
+            <hr />
+
+            <h3>Потрібні ресурси (на {passengers} осіб):</h3>
+            <ul>
+              <li>Автобуси (по 20 місць):{buses}</li>
+              <li>Пляшки води (по 2 на пасажира):{waterBottles}</li>
+              <li>Бутерброди (по 3 на пасажира):{sandwiches}</li>
+            </ul>
+          </div>
+        );
+      }
+
+      function App() {
+        return <CalculateProvisions />;
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

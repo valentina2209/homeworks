@@ -1,0 +1,63 @@
+import { useState } from "react";
+import css from "./Task-03.module.css"
+
+function SpeedChecker() {
+    const [allowedSpeed, setAllowedSpeed] = useState("");
+    const [currentSpeed, setCurrentSpeed] = useState("");
+    
+    // Стан speedClass та showWarning БІЛЬШЕ НЕ ПОТРІБЕН як окремий useState
+
+    // 1. Обчислюємо похідні значення на етапі рендерингу
+    let speedClass = "";
+    let showWarning = false;
+    
+    // Якщо обидві швидкості введені, проводимо обчислення
+    if (allowedSpeed && currentSpeed) {
+        const allowed = Number(allowedSpeed);
+        const current = Number(currentSpeed);
+        const ratio = current / allowed;
+
+        if (ratio < 0.5) {
+            speedClass = css.speedLow; // Оранжевий
+        } else if (ratio <= 1) {
+            speedClass = css.speedNormal; // Зелений
+        } else {
+            speedClass = css.speedHigh; // Червоний
+        }
+
+        showWarning = ratio > 0.9;
+    } 
+    // Якщо не введені, speedClass залишається "" і showWarning - false
+
+    return (
+        <div className={css.container}>
+            <h1>Перевірка швидкості авто</h1>
+
+            <div className={css.inputGroup}>
+                <label>Дозволена швидкість:</label>
+                <input
+                    type="number"
+                    value={allowedSpeed}
+                    onChange={(e) => setAllowedSpeed(e.target.value)}
+                />
+            </div>
+            <div className={css.inputGroup}>
+                <label>Поточна швидкість:</label>
+                <input
+                    type="number"
+                    value={currentSpeed}
+                    onChange={(e) => setCurrentSpeed(e.target.value)}
+                    // Логіка блокування
+                    disabled={!allowedSpeed} 
+                    // Використовуємо обчислене значення
+                    className={speedClass} 
+                />
+            </div>
+
+            {/* Використовуємо обчислене значення */}
+            {showWarning && <div className={`${css.warning} ${css.blinking}`}>Увага!</div>} 
+        </div>
+    )
+}
+
+export default SpeedChecker;

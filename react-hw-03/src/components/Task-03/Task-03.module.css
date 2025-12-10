@@ -1,0 +1,55 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.inputGroup {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+input {
+  padding: 8px;
+  font-size: 16px;
+  margin-top: 5px;
+  transition: background-color 0.5s;
+}
+
+/* Класи для швидкості */
+.speedLow {
+  background-color: orange;
+}
+
+.speedNormal {
+  background-color: green;
+}
+
+.speedHigh {
+  background-color: red;
+}
+
+/* Повідомлення "Увага!" з блиманням */
+.warning {
+  color: red;
+  font-weight: bold;
+  margin-top: 15px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
