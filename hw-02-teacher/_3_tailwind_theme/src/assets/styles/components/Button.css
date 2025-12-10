@@ -1,0 +1,41 @@
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center
+      px-4 py-2 rounded-md font-semibold text-sm
+      transition-colors duration-200
+      focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    background-color: var(--btn-bg-primary);
+    color: var(--btn-text-primary);
+  }
+  .btn-primary:hover {
+    background-color: #2563eb; /* blue-600 */
+  }
+  .btn-primary:focus {
+    --tw-ring-color: #3b82f6; /* blue-500 */
+  }
+
+  .btn-secondary {
+    background-color: var(--btn-bg-secondary);
+    color: var(--btn-text-secondary);
+  }
+  .btn-secondary:hover {
+    background-color: #d1d5db; /* gray-300 */
+  }
+  .btn-secondary:focus {
+    --tw-ring-color: #9ca3af; /* gray-400 */
+  }
+
+  .btn-danger {
+    background-color: var(--btn-bg-danger);
+    color: var(--btn-text-danger);
+  }
+  .btn-danger:hover {
+    background-color: #b91c1c; /* red-700 */
+  }
+  .btn-danger:focus {
+    --tw-ring-color: #dc2626; /* red-600 */
+  }
+}

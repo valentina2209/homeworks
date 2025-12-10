@@ -1,0 +1,31 @@
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: $font-primary;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-header {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+  }
+
+  .card-content {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .card-footer {
+    margin-top: 15px;
+    font-size: 0.875rem;
+    color: #999;
+    text-align: right;
+  }
+}

@@ -1,0 +1,10 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --btn-bg-primary: #3b82f6;
+  --btn-text-primary: #ffffff;
+  --btn-bg-secondary: #e5e7eb;
+  --btn-text-secondary: #1f2937;
+  --btn-bg-danger: #ef4444;
+  --btn-text-danger: #ffffff;
+}
