@@ -1,0 +1,55 @@
+import { useState } from "react";
+import "./App.css";
+
+export default function App() {
+  const [allAthletes, setAllAthletes] = useState([
+    "Іван",
+    "Олег",
+    "Марина",
+    "Світлана"
+  ]);
+
+  const [selectedAthletes, setSelectedAthletes] = useState([]);
+
+  const moveToSelected = (name) => {
+    setSelectedAthletes((prev) => [...prev, name]);
+    setAllAthletes((prev) => prev.filter((item) => item !== name));
+  };
+
+  const moveToAll = (name) => {
+    setAllAthletes((prev) => [...prev, name]);
+    setSelectedAthletes((prev) => prev.filter((item) => item !== name));
+  };
+
+  return (
+    <div className="container">
+      <div className="block">
+        <h3>Всі спортсмени</h3>
+        <ul>
+          {allAthletes.map((name) => (
+            <li key={name}>
+              <span>{name}</span>
+              <button className="green" onClick={() => moveToSelected(name)}>
+                ➡
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="block">
+        <h3>Вибрані для змагань</h3>
+        <ul>
+          {selectedAthletes.map((name) => (
+            <li key={name}>
+              <span>{name}</span>
+              <button className="red" onClick={() => moveToAll(name)}>
+                ⬅
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}

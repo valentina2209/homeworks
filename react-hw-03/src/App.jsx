@@ -4,6 +4,7 @@ import CalkCounter from './components/Task-01/Task-01'
 import TempSwitch from './components/Task-02/Task-02'
 import SpeedChecker from './components/Task-03/Task-03'
 import SingleSapper from './components/Task-04/Task-04'
+import Sportsman from './components/Task-05/Task-05'
 
 
 function App() {
@@ -26,10 +27,10 @@ function App() {
       <div className="block">
         <h2 className="taskTitle">Задача №4</h2>
         <SingleSapper />
-
       </div>
       <div className="block">
         <h2 className="taskTitle">Задача №5</h2>
+        <Sportsman />
 
       </div>
       <div className="block">
