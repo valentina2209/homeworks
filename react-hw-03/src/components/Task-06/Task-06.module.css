@@ -1,0 +1,54 @@
+.wrapper {
+  width: 400px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+}
+
+.selectors {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+select {
+  width: 160px;
+  padding: 6px;
+}
+
+.addBtn {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  background: lightgreen;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.addBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.pairsList {
+  list-style: none;
+  padding: 0;
+}
+
+.pairsList li {
+  display: flex;
+  justify-content: space-between;
+  background: #f3f3f3;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.removeBtn {
+  background: salmon;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
