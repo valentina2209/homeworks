@@ -1,0 +1,70 @@
+.wrapper {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px 30px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+select {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background: #f8f8f8;
+  transition: all 0.3s ease;
+}
+
+select:hover {
+  border-color: #888;
+}
+
+select:focus {
+  border-color: #5a67d8;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 3px rgba(90, 103, 216, 0.5);
+}
+
+.carsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 15px;
+  background: #fafafa;
+  border-radius: 15px;
+  border: 1px solid #eee;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.noResults {
+  text-align: center;
+  color: #666;
+  margin-top: 20px;
+  font-size: 18px;
+}

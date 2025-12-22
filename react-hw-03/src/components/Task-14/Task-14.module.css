@@ -1,0 +1,73 @@
+.wrapper {
+    max-width: 520px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #f7f9ff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-family: sans-serif;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+input, select, textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+.dates {
+    display: flex;
+    gap: 10px;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.services label {
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+
+button {
+    padding: 14px;
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background: #b3b6f7;
+    cursor: not-allowed;
+}
+
+.success {
+    text-align: center;
+    background: #e6fffa;
+    padding: 30px;
+    border-radius: 12px;
+}

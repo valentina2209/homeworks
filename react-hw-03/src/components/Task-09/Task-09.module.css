@@ -1,0 +1,67 @@
+.wrapper {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 24px 32px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.wrapper h2 {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #1f2937;
+}
+
+.columns {
+  display: flex;
+  gap: 48px;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: linear-gradient(145deg, #f9fafb, #ffffff);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111827;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    border-color 0.15s ease, background 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  background: #f3f4f6;
+}
+
+.selected {
+  border-color: #2563eb;
+  background: linear-gradient(145deg, #e0ecff, #f0f6ff);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.wrong {
+  border-color: #dc2626;
+  background: linear-gradient(145deg, #fee2e2, #fff1f2);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+}
+
+/* Коли картка вже видалена — нічого не блимає */
+.card:active {
+  transform: scale(0.98);
+}

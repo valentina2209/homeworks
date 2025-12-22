@@ -1,0 +1,117 @@
+.trainer {
+  max-width: 520px;
+  margin: 40px auto;
+  padding: 24px;
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.trainer h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.controls input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #c7d2fe;
+  font-size: 16px;
+  outline: none;
+}
+
+.controls input:focus {
+  border-color: #6366f1;
+}
+
+.controls button {
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: none;
+  background: #6366f1;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.controls button:hover {
+  background: #4f46e5;
+}
+
+.task {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+.answerInput {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #c7d2fe;
+  font-size: 18px;
+  text-align: center;
+  outline: none;
+}
+
+.answerInput:focus {
+  border-color: #6366f1;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.results h4 {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.correct {
+  background: #ecfdf5;
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.correct h4 {
+  color: #047857;
+}
+
+.wrong {
+  background: #fef2f2;
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.wrong h4 {
+  color: #b91c1c;
+}
+
+.results ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.results li {
+  font-size: 14px;
+  padding: 4px 0;
+}
