@@ -1,0 +1,48 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(247,249,255,0.8));
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  box-shadow: 0 4px 10px rgba(12, 22, 48, 0.04);
+}
+
+.text {
+  flex: 1;
+  font-size: 15px;
+  color: #0f2140;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(79, 91, 160, 0.08);
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  color: #23304a;
+  transition: transform 100ms ease, background 120ms ease;
+}
+
+.btnLike {
+  background: linear-gradient(90deg, #ffd166, #ff7a59);
+  color: #141414;
+  border: none;
+}
+
+.badge {
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #2b2f76;
+  font-weight: 700;
+  font-size: 13px;
+}

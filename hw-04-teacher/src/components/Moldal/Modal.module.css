@@ -1,0 +1,47 @@
+/* Modal.module.css - styles for Modal component */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+}
+
+.content {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 520px;
+  width: 90%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.1);
+  color: #0f172a;
+  outline: none;
+}
+
+.closeWrapper {
+  margin-top: 16px;
+  text-align: right;
+}
+
+.closeButton {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #f7f7f7;
+  cursor: pointer;
+  font-weight: 600;
+  color: red;
+}
+
+.closeButton:focus {
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  outline: none;
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 16px;
+    border-radius: 10px;
+  }
+}
