@@ -1,0 +1,26 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background-color: #f1f5f9;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.title {
+  color: #1e293b;
+}
+
+.removeBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.removeBtn:hover {
+  transform: scale(1.1);
+  color: #dc2626;
+}

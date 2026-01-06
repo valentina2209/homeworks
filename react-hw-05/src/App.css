@@ -1,0 +1,28 @@
+/* reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f7f7f7;
+  color: #222;
+}
+
+/* базовий layout */
+.app {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* базові елементи */
+button {
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+}
