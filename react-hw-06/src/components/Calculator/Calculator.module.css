@@ -27,8 +27,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* INPUTS */
-
 .inputGroup {
   display: flex;
   flex-direction: column;
@@ -70,8 +68,6 @@
   transform: translateY(-2px);
 }
 
-/* RESULT */
-
 .result {
   margin: 28px 0 22px;
   padding: 20px;
@@ -87,8 +83,6 @@
 
   box-shadow: 0 20px 40px rgba(124, 58, 237, 0.45);
 }
-
-/* BUTTON */
 
 .counterBtn {
   width: 100%;
