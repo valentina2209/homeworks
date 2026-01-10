@@ -1,0 +1,50 @@
+.container {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 24px;
+}
+
+/* grid товарів */
+.productsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+  margin-bottom: 48px;
+}
+
+/* кнопка "на головну" */
+.home {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  box-shadow: 0 12px 30px rgba(0, 114, 255, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0, 114, 255, 0.45);
+}
+
+/* error */
+.error {
+  text-align: center;
+  color: #ff4d4f;
+  font-size: 18px;
+  margin-top: 40px;
+}
+
+/* адаптив */
+@media (max-width: 768px) {
+  .container {
+    margin: 40px auto;
+  }
+
+  .productsList {
+    gap: 20px;
+  }
+}
