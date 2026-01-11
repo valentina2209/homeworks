@@ -6,7 +6,7 @@ import frontRoutes from '../../routes/frontRoutes'
 import axios from 'axios'
 import apiRoutes from '../../api/apiRoutes'
 import styles from './TeachersList.module.css'
-import TeacherCard from '../../components/teachers/TEacherCard'
+import TeacherCard from '../../components/teachers/TeacherCard'
 
 
 function TeachersList() {
