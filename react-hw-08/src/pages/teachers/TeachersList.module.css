@@ -1,0 +1,51 @@
+.pageContainer {
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainTitle {
+  color: #2e7d32;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.topBar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.list {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.addBtn,
+.meetingBtn {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+.addBtn {
+  background-color: #4caf50;
+}
+.meetingBtn {
+  background-color: #2196f3;
+}

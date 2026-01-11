@@ -1,0 +1,33 @@
+.container {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: calc(100vh - 150px); /* Щоб футер не прилипав, якщо тексту мало */
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+}
+
+.title {
+  color: #4caf50;
+  font-size: 3rem; /* Великий шрифт як на скріні */
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+.content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.homeBtnWrapper {
+  margin-top: 20px;
+}

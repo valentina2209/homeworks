@@ -1,0 +1,100 @@
+.container {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.selected {
+  border: 2px solid #8bc34a;
+  background-color: #f1f8e9;
+}
+
+.mainInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.avatarWrapper {
+  position: relative;
+  margin-right: 20px;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.idBadge {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.infoText .name {
+  color: #2e7d32;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.infoText .subject {
+  color: #757575;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.infoText .subject span {
+  font-weight: bold;
+}
+
+.selectBtn {
+  margin-left: auto;
+  padding: 8px 16px;
+  background-color: #42a5f5;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btnSelected {
+  background-color: #66bb6a;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.buttonBlue,
+.buttonRed {
+  flex: 1;
+  border: none;
+  padding: 8px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 0.9rem;
+}
+
+.buttonBlue {
+  background-color: #03a9f4;
+}
+.buttonRed {
+  background-color: #ef5350;
+}
