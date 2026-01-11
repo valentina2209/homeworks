@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from 'react-router'
-import TeacherCard from '../components/teachers/TEacherCard'
+import TeacherCard from '../components/teachers/TeacherCard'
 import styles from "./Meetings.module.css"
 import frontRoutes from '../routes/frontRoutes'
 
