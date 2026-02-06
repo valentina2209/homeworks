@@ -1,0 +1,101 @@
+.row {
+  display: grid;
+  grid-template-columns: var(--grid-layout);
+  gap: 16px;
+  padding: 20px 24px;
+  align-items: center;
+  border-bottom: 1px solid #f5f5f5;
+  transition: background 0.2s ease;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background: #f9f9fb;
+}
+
+.doctorProfile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: #000;
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nameInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 15px;
+  color: #111;
+}
+
+.spec {
+  font-size: 13px;
+  color: #0f766e;
+}
+
+.contactData {
+  font-size: 14px;
+  color: #444;
+}
+
+.roomBadge {
+  justify-self: start;
+  padding: 4px 10px;
+  background: #f0f0f2;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 12px;
+  color: #333;
+}
+
+.actionsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.deleteBtn,
+.editBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: color 0.2s ease, transform 0.15s ease;
+}
+
+.editBtn {
+  color: #0f766e;
+}
+
+.editBtn:hover {
+  color: #134e4a;
+  transform: scale(1.08);
+}
+
+.deleteBtn {
+  color: #dc2626;
+}
+
+.deleteBtn:hover {
+  color: #991b1b;
+  transform: scale(1.08);
+}

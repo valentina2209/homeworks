@@ -15,7 +15,10 @@ import { api } from "..";
 export const patientApi = api.injectEndpoints({
     endpoints: (builder) => ({
         getPatients: builder.query({
-            query: () => '/patients',
+            query: (params) => ({
+                url: '/patients',
+                params,
+            }),
             providesTags: ['Patients'],
         }),
         getPatientById: builder.query({
@@ -29,6 +32,18 @@ export const patientApi = api.injectEndpoints({
                 body: data,
             }),
             invalidatesTags: ['Patients'],
+        }),
+        updatePatientFull: builder.mutation({
+            query: ({ id, data }) => ({
+                url: `/patients/${id}`,
+                method: 'PUT',
+                body: data,
+            }),
+            invalidatesTags: (result, error, { id }) => [
+                { type: 'Patient', id },
+                'Patients',
+                'Appointments',
+            ],
         }),
         updatePatient: builder.mutation({
             query: ({ id, data }) => ({
@@ -61,5 +76,6 @@ export const {
     useGetPatientByIdQuery,
     useCreatePatientMutation,
     useUpdatePatientMutation,
+    useUpdatePatientFullMutation,
     useDeletePatientMutation,
 } = patientApi
