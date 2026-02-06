@@ -36,7 +36,7 @@ function PatientCard({ patient }) {
                 </Link>
 
                 <Link
-                    to={`/patients/${patient.id}`}
+                    to={`/patients/${patient.id}/edit`}
                     className={styles.editBtn}
                     title="Редагувати"
                 >
