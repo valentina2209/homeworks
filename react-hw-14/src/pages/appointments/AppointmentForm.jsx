@@ -40,21 +40,6 @@ function AppointmentForm() {
         } catch (error) {
             console.error("Помилка при збереженні:", error)
         }
-        // const data = {
-        //     patientId: event.target.patientId.value,
-        //     doctorId: event.target.doctorId.value,
-        //     date: event.target.date.value,
-        //     reason: event.target.reason.value,
-        //     status: event.target.status.value,
-        // }
-
-        // if (isEdit) {
-        //     await updateAppointment({ id, data })
-        // } else {
-        //     await createAppointment(data)
-        // }
-
-        // navigate("/appointments")
     }
 
     return (

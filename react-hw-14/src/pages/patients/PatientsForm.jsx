@@ -1,6 +1,7 @@
 import { useCreatePatientMutation, useGetPatientByIdQuery, useUpdatePatientMutation } from "@/api/slices/patientApi";
 import { Link, useNavigate, useParams } from "react-router";
 import styles from "./PatientsForm.module.css"
+import Loader from "@/components/Loader/Loader";
 
 function PatientsForm() {
     const { id } = useParams()
@@ -14,7 +15,7 @@ function PatientsForm() {
     const [createPatient] = useCreatePatientMutation()
     const [updatePatient] = useUpdatePatientMutation()
 
-    if (isEdit && isLoading) return <div>Loading....</div>
+    if (isEdit && isLoading) return <Loader />
 
     const handleSubmit = async (event) => {
         event.preventDefault()
