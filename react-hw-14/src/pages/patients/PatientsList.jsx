@@ -7,6 +7,7 @@ import Loader from "@/components/Loader/Loader";
 import { useEffect, useState } from "react";
 import SearchIcon from "@/components/icons/SearchIcon";
 import ClearIcon from "@/components/icons/ClearIcon";
+import ErrorState from "@/components/ErrorState/ErrorState";
 
 function PatientsList() {
     const [searchTerm, setSearchTerm] = useState("")
@@ -25,7 +26,7 @@ function PatientsList() {
     )
 
     if (isLoading) return <Loader />
-    if (error) return <div>Error</div>
+    if (error) return <ErrorState />
 
     return (
         <div className={styles.listContainer}>

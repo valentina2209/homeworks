@@ -6,6 +6,7 @@ import styles from "./AppointmentsList.module.css"
 import AddButton from "@/components/icons/AddButton"
 import { Link } from "react-router"
 import Loader from "@/components/Loader/Loader"
+import ErrorState from "@/components/ErrorState/ErrorState"
 
 function AppointmentsList() {
     const {
@@ -31,7 +32,7 @@ function AppointmentsList() {
     }
 
     if (appointmentsError || patientsError || doctorsError) {
-        return <div>Error loading data</div>
+        return <ErrorState />
     }
 
     const patientsMap = {}

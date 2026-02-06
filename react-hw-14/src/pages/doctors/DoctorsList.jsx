@@ -4,11 +4,12 @@ import DoctorCard from "./DoctorCard"
 import styles from "./DoctorList.module.css"
 import AddButton from "@/components/icons/AddButton"
 import Loader from "@/components/Loader/Loader"
+import ErrorState from "@/components/ErrorState/ErrorState"
 
 function DoctorsList() {
     const { data: doctors, error, isLoading } = useGetDoctorsQuery()
     if (isLoading) return <Loader />
-    if (error) return <div>Error</div>
+    if (error) return <ErrorState />
 
     return (
         <div className={styles.listContainer}>
