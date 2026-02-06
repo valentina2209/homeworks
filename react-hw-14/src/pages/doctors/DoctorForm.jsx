@@ -34,7 +34,7 @@ function DoctorForm() {
             await createDoctor(data)
         }
 
-        navigate("admin/doctors")
+        navigate("/doctors")
     }
 
     return (
