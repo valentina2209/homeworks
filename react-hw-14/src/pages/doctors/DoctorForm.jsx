@@ -2,6 +2,7 @@ import { useCreateDoctorMutation, useGetDoctorByIdQuery, useUpdateDoctorMutation
 import { Link, useNavigate, useParams } from "react-router"
 import styles from "./DoctorForm.module.css"
 import Loader from "@/components/Loader/Loader"
+import { toast } from "react-hot-toast"
 
 function DoctorForm() {
     const { id } = useParams()
@@ -19,23 +20,22 @@ function DoctorForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+        const formData = new FormData(event.target)
+        const data = Object.fromEntries(formData.entries())
 
-        const data = {
-            fullName: event.target.fullName.value,
-            specialty: event.target.specialty.value,
-            email: event.target.email.value,
-            phone: event.target.phone.value,
-            room: event.target.room.value,
-            notes: event.target.notes.value,
+        try {
+            if (isEdit) {
+                await updateDoctor({ id, data }).unwrap()
+                toast.success("Дані лікаря успішно оновлено!")
+            } else {
+                await createDoctor(data).unwrap()
+                toast.success("Нового лікаря успішно додано!")
+            }
+            navigate("/doctors")
+        } catch (error) {
+            console.error(error)
+            toast.error(`Помилка: ${error.data?.message || "Не вдалося зберегти дані"}`)
         }
-
-        if (isEdit) {
-            await updateDoctor({ id, data })
-        } else {
-            await createDoctor(data)
-        }
-
-        navigate("/doctors")
     }
 
     return (

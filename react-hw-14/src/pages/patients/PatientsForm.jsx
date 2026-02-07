@@ -1,7 +1,8 @@
 import { useCreatePatientMutation, useGetPatientByIdQuery, useUpdatePatientMutation } from "@/api/slices/patientApi";
-import { Link, useNavigate, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router"
 import styles from "./PatientsForm.module.css"
-import Loader from "@/components/Loader/Loader";
+import Loader from "@/components/Loader/Loader"
+import { toast } from "react-hot-toast"
 
 function PatientsForm() {
     const { id } = useParams()
@@ -19,24 +20,22 @@ function PatientsForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+        const formData = new FormData(event.target)
+        const data = Object.fromEntries(formData.entries())
 
-        const data = {
-            fullName: event.target.fullName.value,
-            birthDate: event.target.birthDate.value,
-            gender: event.target.gender.value,
-            phone: event.target.phone.value,
-            email: event.target.email.value,
-            address: event.target.address.value,
-            notes: event.target.notes.value
+        try {
+            if (isEdit) {
+                await updatePatient({ id, data }).unwrap()
+                toast.success("Дані пацієнта успішно оновлено!")
+            } else {
+                await createPatient(data).unwrap()
+                toast.success("Нового пацієнта успішно додано!")
+            }
+            navigate("/patients")
+        } catch (error) {
+            console.error(error)
+            toast.error(`Помилка: ${error.data?.message || 'Не вдалося зберегти дані'}`)
         }
-
-        if (isEdit) {
-            await updatePatient({ id, data })
-        } else {
-            await createPatient(data)
-        }
-
-        navigate("/patients")
     }
 
     return (
@@ -48,12 +47,25 @@ function PatientsForm() {
             <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.fieldGroup}>
                     <label className={styles.label}>Повне ім'я</label>
-                    <input className={styles.input} name="fullName" defaultValue={patient?.fullName || ""} placeholder="Олена Ковальчук" required />
+                    <input
+                        className={styles.input}
+                        name="fullName"
+                        defaultValue={patient?.fullName || ""}
+                        placeholder="Олена Ковальчук"
+                        required
+                    />
                 </div>
 
                 <div className={styles.fieldGroup}>
                     <label className={styles.label}>Дата народження</label>
-                    <input className={styles.input} name="birthDate" defaultValue={patient?.birthDate || ""} placeholder="22.03.1994" required />
+                    <input
+                        className={styles.input}
+                        type="date"
+                        name="birthDate"
+                        defaultValue={patient?.birthDate || ""}
+                        placeholder="22.03.1994"
+                        required
+                    />
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
@@ -69,7 +81,17 @@ function PatientsForm() {
 
                 <div className={styles.fieldGroup}>
                     <label className={styles.label}>Стать</label>
-                    <input className={styles.input} name="gender" defaultValue={patient?.gender || ""} placeholder="чол" />
+                    <select
+                        className={styles.input}
+                        name="gender"
+                        defaultValue={patient?.gender || ""}
+                        required
+                    >
+                        <option value="" disabled>Оберіть стать</option>
+                        <option value="male">Чоловіча</option>
+                        <option value="female">Жіноча</option>
+                        <option value="other">Інша</option>
+                    </select>
                 </div>
 
                 <div className={styles.fieldGroup}>
@@ -79,11 +101,17 @@ function PatientsForm() {
 
                 <div className={styles.fieldGroup}>
                     <label className={styles.label}>Додаткові нотатки</label>
-                    <input className={styles.input} name="notes" defaultValue={patient?.notes || ""} placeholder="Діагноз або примітки" />
+                    <textarea
+                        className={styles.input}
+                        name="notes"
+                        defaultValue={patient?.notes || ""}
+                        placeholder="Діагноз або примітки"
+                        rows="3"
+                    />
                 </div>
 
                 <button className={styles.submitBtn} type="submit">
-                    {isEdit ? "Зберегти зміни" : "Додати спеціаліста"}
+                    {isEdit ? "Зберегти зміни" : "Зареєструвати пацієнта"}
                 </button>
 
                 <Link className={styles.goBack} to="/patients">Повернутися назад</Link>

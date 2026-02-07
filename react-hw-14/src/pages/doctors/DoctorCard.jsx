@@ -3,9 +3,34 @@ import { useDeleteDoctorMutation } from "@/api/slices/doctorApi";
 import styles from "./DoctorCard.module.css"
 import EditIcon from "@/components/icons/EditIcon";
 import DeleteIcon from "@/components/icons/DeleteIcon";
+import Swal from "sweetalert2";
 
 function DoctorCard({ doctor }) {
     const [deleteDoctor, { isLoading }] = useDeleteDoctorMutation()
+
+    const handleDelete = async (id) => {
+        console.log("Видаляємо лікаря з ID:", id)
+        const result = await Swal.fire({
+            title: 'Ви впевнені?',
+            text: "Цю дію неможливо буде скасувати!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#0d9488',
+            cancelButtonColor: '#ef4444',
+            confirmButtonText: 'Так, видалити!',
+            cancelButtonText: 'Скасувати'
+        })
+
+        if (result.isConfirmed) {
+            try {
+                await deleteDoctor(id).unwrap()
+                Swal.fire('Видалено!', 'Запис було успішно видалено.', 'success')
+            } catch (error) {
+                console.error(error)
+                Swal.fire('Помилка!', 'Не вдалося видалити запис.', 'error')
+            }
+        }
+    }
 
     return (
         <div className={styles.row}>
@@ -41,7 +66,7 @@ function DoctorCard({ doctor }) {
                 <button
                     type="button"
                     className={styles.deleteBtn}
-                    onClick={() => deleteDoctor(doctor.id)}
+                    onClick={() => handleDelete(doctor.id)}
                     title="Видалити"
                     disabled={isLoading}
                 >

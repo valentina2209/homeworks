@@ -4,6 +4,7 @@ import { useCreateAppointmentMutation, useGetAppointmentByIdQuery, useUpdateAppo
 import Loader from "@/components/Loader/Loader"
 import { useGetPatientsQuery } from "@/api/slices/patientApi"
 import { useGetDoctorsQuery } from "@/api/slices/doctorApi"
+import { toast } from "react-hot-toast"
 
 function AppointmentForm() {
     const { id } = useParams()
@@ -26,15 +27,16 @@ function AppointmentForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-
         const formData = new FormData(event.target)
         const data = Object.fromEntries(formData.entries())
 
         try {
             if (isEdit) {
                 await updateAppointment({ id, data }).unwrap()
+                toast.success("Призначення успішно оновлено!")
             } else {
                 await createAppointment(data).unwrap()
+                toast.success("Нове призначення успішно створенно!")
             }
             navigate("/appointments")
         } catch (error) {
