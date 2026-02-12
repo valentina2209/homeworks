@@ -1,0 +1,107 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-card);
+  border-radius: 20px;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(212, 163, 115, 0.2);
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-title);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.type {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.extra {
+  font-size: 0.95rem;
+  color: var(--accent);
+  background: var(--bg-card);
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.actions {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  font-size: 0.95rem;
+}
+
+.primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.primary:hover {
+  background: var(--accent);
+}
+
+.secondary {
+  background: #f1f5f9;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.danger {
+  background: #fee2e2;
+  color: #ef4444;
+}

@@ -1,0 +1,96 @@
+.header {
+  background-color: var(--bg-header);
+  border-bottom: 1px solid rgba(212, 163, 115, 0.15);
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.nav {
+  display: flex;
+  gap: 40px;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 4px 0;
+}
+
+.link:hover {
+  color: var(--accent);
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.active {
+  color: var(--accent) !important;
+}
+
+.active::after {
+  width: 100% !important;
+}
+
+.themeToggle {
+  --toggle-width: 60px;
+  --toggle-height: 30px;
+  --circle-size: 24px;
+  position: relative;
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  border-radius: 30px;
+  background-color: #e0e0e0;
+  border: 1px solid var(--accent);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 3px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  outline: none;
+}
+
+.themeToggle.dark {
+  background-color: #2d2d2d;
+}
+
+.toggleCircle {
+  width: var(--circle-size);
+  height: var(--circle-size);
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic - bezier(0.23, 1, 0.32, 1);
+}
+
+.themeToggle.dark.toggleCircle {
+  transform: translateX(calc(var(--toggle-width) - var(--circle-size) - 8px));
+  background-color: #1a1a1a;
+}
+
+.themeToggle:hover {
+  box-shadow: 0 0 10px rgba(212, 163, 115, 0.4);
+}

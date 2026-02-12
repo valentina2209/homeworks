@@ -1,0 +1,41 @@
+.page {
+  min-height: 100vh;
+  padding: 48px 24px;
+  background-color: var(--bg-page);
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+  color: var(--text-main);
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background-color: var(--accent);
+  margin: 20px auto 0;
+}
+
+.grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 40px 16px;
+  }
+  .title {
+    font-size: 28px;
+  }
+}
