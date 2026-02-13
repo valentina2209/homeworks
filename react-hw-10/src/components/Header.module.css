@@ -9,7 +9,9 @@
 
 .nav {
   display: flex;
-  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
 }
 
 .link {
@@ -51,46 +53,54 @@
   width: 100% !important;
 }
 
-.themeToggle {
-  --toggle-width: 60px;
-  --toggle-height: 30px;
-  --circle-size: 24px;
-  position: relative;
-  width: var(--toggle-width);
-  height: var(--toggle-height);
-  border-radius: 30px;
-  background-color: #e0e0e0;
-  border: 1px solid var(--accent);
+.toggleWrapper {
   cursor: pointer;
   display: flex;
   align-items: center;
-  padding: 0 3px;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  outline: none;
+  margin: 0;
 }
 
-.themeToggle.dark {
+.toggleTrack {
+  width: 56px;
+  height: 28px;
+  background-color: #e2e8f0; /* Світлий сірий для Light */
+  border-radius: 50px;
+  padding: 3px;
+  transition: background-color 0.4s ease;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(212, 163, 115, 0.3); /* Наш пісочний колір */
+}
+
+/* Колір треку в темній темі */
+.trackDark {
   background-color: #2d2d2d;
+  border-color: #d4a373;
 }
 
-.toggleCircle {
-  width: var(--circle-size);
-  height: var(--circle-size);
+.thumb {
+  width: 22px;
+  height: 22px;
   background-color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: all 0.4s cubic - bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  /* Головна частина анімації */
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translateX(0);
 }
 
-.themeToggle.dark.toggleCircle {
-  transform: translateX(calc(var(--toggle-width) - var(--circle-size) - 8px));
+/* Рух кульки вправо */
+.thumbDark {
+  transform: translateX(28px);
   background-color: #1a1a1a;
 }
 
-.themeToggle:hover {
-  box-shadow: 0 0 10px rgba(212, 163, 115, 0.4);
+/* Легка пульсація при наведенні */
+.toggleWrapper:hover .thumb {
+  box-shadow: 0 0 8px var(--accent);
 }
