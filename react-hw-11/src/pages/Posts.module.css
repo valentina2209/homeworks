@@ -1,0 +1,83 @@
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.mainTitle {
+  color: #f39c12;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background-color: #242424;
+  border-left: 4px solid #f39c12;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 20px rgba(243, 156, 18, 0.15);
+}
+
+.cardContent {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.postTitle {
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.postBody {
+  color: #a0a0a0;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.deleteBtn {
+  background: transparent;
+  border: 1px solid #f39c12;
+  color: #f39c12;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.deleteBtn:hover {
+  background-color: #f39c12;
+  color: #1a1a1a;
+  box-shadow: 0 0 10px rgba(243, 156, 18, 0.4);
+}
+
+.status {
+  text-align: center;
+  color: #f39c12;
+  font-size: 1.5rem;
+  margin-top: 100px;
+}
