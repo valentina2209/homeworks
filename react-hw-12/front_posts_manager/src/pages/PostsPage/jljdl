@@ -1,0 +1,111 @@
+import useForm from '@/hooks/useForm'
+import { getPostById } from '@/store/slices/postSelect'
+import { clearId } from '@/store/slices/postsSlice'
+import { createPost, updatePost } from '@/store/slices/postsThunk'
+import { useEffect, useId } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate, useParams } from 'react-router'
+import styles from './PostForm.module.css'
+
+function PostForm() {
+    const { id } = useParams()
+    const titleId = useId()
+    const bodyId = useId()
+    const authorId = useId()
+
+    const btnText = id ? 'реадагувати' : 'додати'
+
+    const dispatch = useDispatch()
+
+    const goTo = useNavigate()
+
+    const postValue = useSelector(getPostById)
+
+    const initFormValue = postValue
+        ? postValue
+        : {
+              authorId: '',
+              title: '',
+              body: ''
+          }
+
+    const form = useForm(initFormValue)
+
+    const submitForm = async (e) => {
+        e.preventDefault()
+
+        if (id) dispatch(updatePost(form.values))
+        else
+            dispatch(
+                createPost({
+                    ...form.values,
+                    likesNumber: 0,
+                    dislikesNumber: 0
+                })
+            )
+        goTo('/posts')
+    }
+
+    useEffect(() => {
+        return () => dispatch(clearId())
+    }, [])
+
+    return (
+        <div className={styles.formContainer}>
+            <form onSubmit={submitForm}>
+                <div className={styles.formGroup}>
+                    <label htmlFor={titleId} className={styles.label}>
+                        Заголовок
+                    </label>
+                    <input
+                        type="text"
+                        id={titleId}
+                        name="title"
+                        className={styles.input}
+                        placeholder="Введіть заголовок поста"
+                        value={form.values.title}
+                        onChange={form.handleChange}
+                        required
+                    />
+                </div>
+
+                <div className={styles.formGroup}>
+                    <label htmlFor={bodyId} className={styles.label}>
+                        Опис
+                    </label>
+                    <textarea
+                        name="body"
+                        id={bodyId}
+                        className={styles.textarea}
+                        placeholder="Введіть текст поста"
+                        value={form.values.body}
+                        onChange={form.handleChange}
+                        required
+                    />
+                </div>
+
+                <div className={styles.formGroup}>
+                    <label htmlFor={authorId} className={styles.label}>
+                        Автор
+                    </label>
+                    <input
+                        type="text"
+                        id={authorId}
+                        name="authorId"
+                        className={styles.input}
+                        placeholder="Введіть ім'я автора"
+                        value={form.values.authorId}
+                        onChange={form.handleChange}
+                        required
+                    />
+                </div>
+
+                <button type="submit" className={styles.submitBtn}>
+                    {btnText}
+                </button>
+            </form>
+        </div>
+    )
+}
+
+export default PostForm
