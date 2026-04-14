@@ -1,50 +1,36 @@
-import { API_BASE_URL, postsApi } from '@/api/postsApi'
-import RequestManager from '@/api/requestManager'
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { createNewPost, deletePost, fetchPosts, updatePost } from '@/api/postsApi'
 
-const requestManager = new RequestManager(API_BASE_URL)
 
-export const fetchPosts = createAsyncThunk('posts/fetch', async ({ page, limit }, { rejectWithValue }) => {
+export const postsThunk = createAsyncThunk('fetch/posts', async ({ page, limit }, { rejectWithValue }) => {
   try {
-    const { data, error } = await requestManager.fetchData(postsApi.getPosts({ page, limit }))
-    if (error) {
-      return rejectWithValue(error)
-    }
-    return data
+    return await fetchPosts(page, limit);
   } catch (error) {
     return rejectWithValue(error.message)
   }
 })
 
-export const createPost = createAsyncThunk('add/fetch', async (body, { rejectWithValue }) => {
+export const createNewPostThunk = createAsyncThunk('add/post', async (postData, { rejectWithValue }) => {
   try {
-    const { error } = await requestManager.postRequest(postsApi.addPost, body)
-    if (error) return rejectWithValue(error)
-
-    return true
+    return await createNewPost(postData);
   } catch (error) {
     return rejectWithValue(error.message)
   }
 })
 
-export const updatePost = createAsyncThunk('update/fetch', async (post, { rejectWithValue }) => {
+export const updatePostThunk = createAsyncThunk('update/post', async (postData, { rejectWithValue }) => {
   try {
-    const { error } = await requestManager.putRequest(postsApi.updatePost(post.id), post)
-    if (error) return rejectWithValue(error)
-
-    return true
+    return await updatePost(postData.id, postData)
   } catch (error) {
     return rejectWithValue(error.message)
   }
 })
 
-export const deletePost = createAsyncThunk('delete/fetch', async (id, { rejectWithValue }) => {
+export const deletePostThunk = createAsyncThunk('delete/post', async (postId, { rejectWithValue }) => {
   try {
-    const { data, error } = await requestManager.deleteRequest(postsApi.deletePost(id))
-    if (error) return rejectWithValue(error)
-
-    return data
+    return await deletePost(postId)
   } catch (error) {
     return rejectWithValue(error.message)
   }
 })
+

@@ -1,0 +1,79 @@
+.formContainer {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family:
+    "Inter",
+    -apple-system,
+    sans-serif;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.input,
+.textarea {
+  padding: 12px 16px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #aaa;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 14px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 10px;
+  text-transform: capitalize; /* Щоб "додати" або "редагувати" було з великої */
+}
+
+.submitBtn:hover {
+  background-color: #357abd;
+}
+
+.submitBtn:active {
+  transform: translateY(1px);
+}
+
+/* Додатково: стиль для обов'язкових полів */
+.input:invalid:focus {
+  border-color: #ff4d4f;
+}

@@ -2,7 +2,10 @@ import MainLayout from '@/layouts/MainLayout'
 import About from '@/pages/About'
 import Home from '@/pages/Home'
 import PostsPage from '@/pages/PostsPage'
+import { lazy } from 'react'
 import { createBrowserRouter } from 'react-router'
+
+const LazyPostForm = lazy(() => import("../pages/PostsPage/PostForm.jsx"))
 
 export const routes = [
   {
@@ -13,6 +16,7 @@ export const routes = [
         Component: Home,
         meta: {
           title: 'Головна',
+          isShow: true
         },
       },
       {
@@ -20,6 +24,7 @@ export const routes = [
         Component: PostsPage,
         meta: {
           title: 'Сторінка постів',
+          isShow: true
         },
       },
       {
@@ -27,8 +32,17 @@ export const routes = [
         Component: About,
         meta: {
           title: 'Про нас',
+          isShow: true
         },
       },
+      {
+        path: '/form/:id?',
+        element: <LazyPostForm />,
+        meta: {
+          title: '',
+          isShow: false
+        }
+      }
     ],
   },
 ]

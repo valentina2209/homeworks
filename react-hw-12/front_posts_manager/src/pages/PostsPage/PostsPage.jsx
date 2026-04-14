@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux'
-import PostsList from './PostsList'
 import { useEffect } from 'react'
-import { fetchPosts } from '@/store/slices/postsThunk'
+import { useDispatch, useSelector } from 'react-redux'
+import { postsThunk } from '@/store/slices/postsThunk'
+import PostsList from './PostsList'
 import PaginationBlock from './PaginationBlock'
 
 function PostsPage() {
@@ -9,13 +9,13 @@ function PostsPage() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchPosts(meta))
+    dispatch(postsThunk({ ...meta }))
     //eslint-disable-next-line
   }, [])
 
   const onPageSelect = (page) => {
     dispatch(
-      fetchPosts({
+      postsThunk({
         ...meta,
         page,
       })

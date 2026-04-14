@@ -7,3 +7,7 @@
   width: 100%;
   min-width: 0;
 }
+
+.addBtn {
+  margin-bottom: 20px;
+}
