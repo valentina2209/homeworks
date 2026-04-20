@@ -4,7 +4,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 const DATA_PATH = path.join(__dirname, 'posts.json')
 
@@ -125,5 +125,5 @@ app.post('/posts/:id/dislike', (req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`)
+  console.log(`Server running on port ${PORT}`)
 })
