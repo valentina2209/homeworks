@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useGetPostByIdQuery } from '../../api/postsApi'
 import css from './PostDetails.module.css'
+import Loader from '@/components/Loader/Loader'
 
 const PostDetails = ({ postId, onClose }) => {
   const {
@@ -20,7 +21,7 @@ const PostDetails = ({ postId, onClose }) => {
   }, [onClose]);
 
   if (!postId) return null;
-  if (isLoading) return <div className={css.loader}>Завантаження...</div>;
+  if (isLoading) return <Loader />
   if (isError) return <div className={css.error}>Помилка завантаження деталей.</div>;
 
   return (

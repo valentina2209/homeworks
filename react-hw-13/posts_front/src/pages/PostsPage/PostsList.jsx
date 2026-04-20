@@ -8,6 +8,7 @@ import {
 import PostForm from '@/components/PostForm'
 import css from "./PostsList.module.css"
 import Modal from '@/components/Modal/Modal'
+import Loader from '@/components/Loader/Loader'
 
 const PostsList = ({ onSelect }) => {
   const [page, setPage] = useState(1)
@@ -28,7 +29,7 @@ const PostsList = ({ onSelect }) => {
   };
 
 
-  if (isLoading) return <p>Завантаження...</p>
+  if (isLoading) return <Loader />
   if (isError) return <p>Помилка завантаження постів</p>
 
   const { items, totalPages, remaining } = data
