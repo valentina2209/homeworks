@@ -1,16 +1,64 @@
-# React + Vite
+🌐 Admin Dashboard (React + FSD)
+Сучасна адмін-панель для управління користувачами та постами. Проєкт побудований з використанням методології Feature-Sliced Design (FSD), що забезпечує чітку структуру та масштабованість.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🛠 Технологічний стек
+Frontend: React, Vite, TypeScript.
 
-Currently, two official plugins are available:
+State Management: Redux Toolkit & RTK Query.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Styling: Tailwind CSS.
 
-## React Compiler
+Architecture: Feature-Sliced Design (FSD).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🖥 Бекенд
+Цей сайт працює за допомогою бекенда, який знаходиться в папці "homeworks" у директорії backend_auth.
 
-## Expanding the ESLint configuration
+Як запустити бекенд:
+Перейдіть до папки з бекендом:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Bash
+cd ../homeworks/backend_auth
+Встановіть залежності:
+
+Bash
+npm install
+`3.  Запустіть сервер:
+   `bash
+npm start
+
+`````
+
+> **Примітка**: API за замовчуванням доступне за адресою `http://localhost:4000`.
+
+## 🚀 Запуск Фронтенда
+
+1.  Встановіть залежності:
+    ```bash
+    npm install
+    ```
+2.  Створіть файл `.env` та вкажіть адресу API (якщо потрібно):
+
+````env
+    VITE_API_URL=http://localhost:4000/api
+    ```
+3.  Запустіть режим розробки:
+    ```bash
+    npm run dev
+    ```
+
+## 🏗 Структура проєкту (FSD)
+
+Проєкт організований за рівнями:
+*   **app**: Налаштування роутингу, стилів та провайдерів (Redux).
+*   **pages**: Компоненти сторінок (Home, Users, Posts).
+*   **widgets**: Складні компоненти, що збираються з сутностей та фіч (наприклад, `UserList`).
+*   **features**: Інтерактивні дії (додавання/видалення користувачів, редагування постів).
+*   **entities**: Бізнес-сутності (User, Post, Comment), їх логіка та API.
+*   **shared**: Базові компоненти, конфігурації та API-клієнт.
+
+## 📝 Важливі примітки щодо API
+
+Зверніть увагу, що деякі функції (наприклад, створення нових користувачів) на даному етапі мають інтерфейсну реалізацію, але обмежені можливостями поточного API бекенду.
+
+
+`````
