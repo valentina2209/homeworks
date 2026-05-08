@@ -1,0 +1,7 @@
+{
+  "workbench.colorCustomizations": {
+    // Колір для фронтенду (наприклад, синій)
+    "window.activeBorder": "#2563eb",
+    "window.inactiveBorder": "#1d4ed8"
+  }
+}
