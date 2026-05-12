@@ -1,0 +1,17 @@
+{
+  "header": {
+    "home": "Main page",
+    "products": "Product page",
+    "cart": "Сart"
+  },
+  "home": {
+    "title": "Welcome !"
+  },
+  "product": {
+    "title": "Product Catalog"
+  },
+  "cart": {
+    "title": "My cart",
+    "total": "Total"
+  }
+}
