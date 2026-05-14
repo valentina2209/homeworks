@@ -89,14 +89,14 @@ export const frontRoutes = {
         roles: [roles.user],
       },
     },
-    NotFoundPage: {
-      path: '*',
-      meta: {
-        title: 'Not Found',
-        isInMenu: false,
-        requireAuth: false,
-      },
-    },
+    // NotFoundPage: {
+    //   path: '*',
+    //   meta: {
+    //     title: 'Not Found',
+    //     isInMenu: false,
+    //     requireAuth: false,
+    //   },
+    // },
     ForbiddenPage: {
       path: 'forbidden',
       navigationPath: '/forbidden',
