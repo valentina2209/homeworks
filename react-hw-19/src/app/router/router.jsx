@@ -5,7 +5,7 @@ import { authCheckLoader } from './authCheckLoader'
 
 import { MainLayout } from '@/widgets/layouts'
 import GlobalErrorPage from '@/pages/GlobalErrorPage'
-import HomePage from '@/pages/HomePage'
+
 
 // Глобальний м'ютекс для запобігання конкурентним запитам оновлення
 const refreshMutex = new Mutex()
@@ -19,10 +19,11 @@ export const router = createBrowserRouter([
     path: '/',
     Component: MainLayout,
     // loader: ()=>authLoader,
-    errElement: <GlobalErrorPage />,
+    errorElement: <GlobalErrorPage />,
     children: appRouterRoutes.map((route) => ({
       ...route,
       loader: () => authLoader(route),
     })),
   },
 ])
+
